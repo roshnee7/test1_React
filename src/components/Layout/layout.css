@@ -1,0 +1,35 @@
+.container{
+    /* width: 80%; */
+    margin: 0 auto; /* Center the DIV horizontally */
+}
+
+.shopname {
+    font-size: 30px;
+    padding: 5px !important;
+    color: yellow;
+    position: relative;
+    bottom: 10px;
+}
+
+.username {
+    padding: 5px !important;
+    position: relative;
+    bottom: 10px;
+    left: 65%;
+}
+
+.fixed-header, .fixed-footer{
+    width: 100%;
+    position: fixed;        
+    background: #4CAF50;
+    padding: 10px 0;
+    color: #fff;
+}
+.fixed-header{
+    top: 0;
+    height: 40px;
+    z-index: 99;
+}
+.fixed-footer{
+    bottom: 0;
+}

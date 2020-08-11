@@ -1,0 +1,16 @@
+.incButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 3%;
+    border-radius: 6px;
+    /* margin-left: 80px; */
+  }
+
+  .buttonDiv{
+      margin-left: 30%;
+      /* border: 1px solid black; */
+  }
