@@ -1,11 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
-import foodItems from './components/FoodItems/foodItems';
 import Home from './components/Home/home';
 import Login from './components/Login/login';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import {LoginSubmit} from "./store/actions/LoginAction";
 
@@ -23,7 +19,6 @@ class App extends React.Component{
     // this.setState({
     //   loginSuccess:true
     // });
-    console.log('loginnnn',this.props)
   }
 
   componentDidUpdate(){
@@ -55,7 +50,7 @@ class App extends React.Component{
     }
 }
 
-const mapStateToProps = state => {console.log('redSta',state)
+const mapStateToProps = state => {
   return {
       loginData: state.login.LoginData
   }

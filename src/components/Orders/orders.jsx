@@ -7,10 +7,9 @@ class Orders extends React.Component{
 
     constructor(props){
         super(props);
-        console.log(this.props)
     }
 
-    componentDidMount(){console.log('ptppp',this.props)
+    componentDidMount(){
     let userId = this.props.loginData && this.props.loginData.status && this.props.loginData.status.userid
         this.props.getOrders(userId);
     }
@@ -23,7 +22,7 @@ onBack = () => {
         this.props.history.push('/');
     }
 }
-    render(){console.log('Order Props',this.props)
+    render(){
         return(
             <div>
                 <Header/><br></br><br></br>
@@ -50,7 +49,6 @@ onBack = () => {
                                             </div>
                                         )
                                     })}
-                                    {/* <span>{gTotal}</span> */}
                                 </div>
                                 </td>
                                 <td>
@@ -69,7 +67,7 @@ onBack = () => {
     }
 }
 
-const mapStateToProps = state => {console.log('redOrderSta',state)
+const mapStateToProps = state => {
   return {
       OrderData: state.foodItem.OrderData,
       loginData: state.login.LoginData

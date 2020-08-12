@@ -21,7 +21,7 @@ class Login extends React.Component{
         })
     };
 
-    render(){//console.log('renderLogim',this.state)
+    render(){
         let loginCard ={
             backgroundColor: 'aqua',
             width:'600px',
@@ -32,7 +32,7 @@ class Login extends React.Component{
             <div style={{backgroundColor:'aliceblue'}}>
             <form>
             <div className="imgcontainer">
-                 <img src={avtar} height={10} width={20} alt="Avatar" class="avatar"/>
+                 <img src={avtar} height={10} width={20} alt="Avatar" className="avatar"/>
              </div>
 
              <div className="container">

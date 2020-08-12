@@ -1,17 +1,13 @@
 import React from 'react';
-import viewCart from '../ViewCart/viewCart';
 import Header from '../Layout/Header';
-import Footer from '../Layout/Footer';
 import { connect } from 'react-redux';
 import {getFoodItems} from "../../store/actions/FoodItemsAction";
 import './foodItems.css';
-import img from './burger.jpg';
 import Button from '../Button/button';
 
 class FoodItems extends React.Component{
     constructor(props){
         super(props);
-            console.log(this.props)
             this.state={
                 quantity: 1,
                 show: true,
@@ -22,7 +18,6 @@ class FoodItems extends React.Component{
     }
 
     onViewCart=() => {
-        // this.props.history.push('/viewCart');
         this.props.history.push({
             pathname: "/viewCart",
             state: {
@@ -46,7 +41,7 @@ class FoodItems extends React.Component{
     componentWillUpdate(nextProps, nextState) {
 
         if(this.props.ItemData === undefined || nextProps.ItemData.Data.length != this.props.ItemData.Data.length)
-        {console.log('componentWillUpdateinside if')
+        {
             let tempFoodItems = nextProps.ItemData.Data;
             tempFoodItems.map((foodItem) => {
                 foodItem.quantity = 0;
@@ -56,8 +51,7 @@ class FoodItems extends React.Component{
         }
     }
 
-    IncrementItem = (id) => {console.log('id',id)
-    console.log('IncrementItem stat',this.state)
+    IncrementItem = (id) => {
     let tempData = this.state.itemData;
     let gTotal = '';
     tempData.map((food) =>{
@@ -94,7 +88,7 @@ class FoodItems extends React.Component{
     }
 
 
-    render(){console.log('foodItemRender',this.state)
+    render(){
     let tblBorder={
         border:'1px solid black',
         borderCollapse: 'collapse'
@@ -111,16 +105,18 @@ class FoodItems extends React.Component{
                     <h1>Food Items</h1>
                     <button type="button" style={{marginLeft:'90%',position:'relative',bottom:'40px',backgroundColor:'#67c361',color:'white'}}  onClick={this.onYourOrders}>Your Orders</button>
                     <table className ='foodItems'>
-                        <tr >
-                            <th >Dish</th>
-                            <th >Name</th>
-                            <th >Price</th>
-                            <th >Quantity</th>
-                        </tr>
+                        <thead>
+                            <tr >
+                                <th >Dish</th>
+                                <th >Name</th>
+                                <th >Price</th>
+                                <th >Quantity</th>
+                            </tr>
+                        </thead>
                     {/* {this.props.ItemData && this.props.ItemData.Data ? this.props.ItemData.Data.map((food) =>{ */}
                     { this.state.itemData ?   this.state.itemData.map((food) =>{
-                        console.log('food', food);
                        return<> 
+                       <tbody>
                         <tr >
                             <td ><img src={food.url} height={100} width={100}></img></td>
                              <td >{food.foodName}</td>
@@ -137,22 +133,25 @@ class FoodItems extends React.Component{
                             </td>
                              
                         </tr>
+                        </tbody>
                            
                         </>
                     }) : ''}
-                    <tr><td><button type="button" style={{backgroundColor:'#67c361',color:'white'}} onClick={this.onViewCart}>View Cart</button></td>
-                    <td></td>
-                    <td></td>
-                <td><span> Total: {gTotal}</span></td>
-                    </tr>
+                        <tbody>
+                            <tr><td><button type="button" style={{backgroundColor:'#67c361',color:'white'}} onClick={this.onViewCart}>View Cart</button></td>
+                            <td></td>
+                            <td></td>
+                            <td><span> Total: {gTotal}</span></td>
+                            </tr>
+                        </tbody>
+                   
                     </table>
-                {/* <Footer/> */}
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {console.log('redSta',state)
+const mapStateToProps = state => {
   return {
       ItemData: state.foodItem.ItemData,
       loginData: state.login.LoginData

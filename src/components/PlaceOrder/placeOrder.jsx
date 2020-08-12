@@ -10,7 +10,6 @@ class PlaceOrder extends React.Component{
     }
 
     onBack=() => {
-        console.log(this.props)
         if(this.props.loginData !== undefined) {
             this.props.history.push('/foodItems');
         }
@@ -23,7 +22,7 @@ class PlaceOrder extends React.Component{
         this.props.history.push('/orders');
     }
 
-    render(){console.log('placeorder')
+    render(){
     let successMsgStyle={
         marginLeft:'400px',
         color:'red',
@@ -42,13 +41,12 @@ class PlaceOrder extends React.Component{
                 </div>
                 <button type="button" style={{position:'relative',backgroundColor:'#67c361',color:'white'}}
                 onClick={this.onBack}>Go Back</button>
-                {/* <a onClick={this.onViewCart}>View Cart</a> */}
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {console.log('redOrderSta',state)
+const mapStateToProps = state => {
   return {
       OrderData: state.foodItem.placeOrderData,
       loginData: state.login.LoginData

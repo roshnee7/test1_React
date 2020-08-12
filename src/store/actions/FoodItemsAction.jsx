@@ -6,10 +6,9 @@ export  function getFoodItems ()  {
       
         let getUrl = 'http://localhost:4000/api/foodItems';
         let itemData = '';
-        axios.get(getUrl).then(res => {console.log('foodReponse>>',res)
+        axios.get(getUrl).then(res => {
             if (res.data) {
                 itemData = res.data;
-               console.log('itemData',itemData)
             dispatch({
                     type: "GET_FOOD_ITEM",
                     payload: itemData
@@ -28,10 +27,9 @@ export  function getOrders (userId)  {
       
         let getUrl = 'http://localhost:4000/api/orders/'+userId;
         let orderData = '';
-        axios.get(getUrl).then(res => {console.log('OrderReponse>>',res)
+        axios.get(getUrl).then(res => {
             if (res.data) {
                 orderData = res.data;
-               console.log('orderData',orderData)
             dispatch({
                     type: "GET_ORDERS",
                     payload: orderData
@@ -50,10 +48,9 @@ export  function placeOrderAction (orderData)  {
       
         let getUrl = 'http://localhost:4000/api/orders';
         let placeOrderData = '';
-        axios.post(getUrl,orderData).then(res => {console.log('OrderReponse>>',res)
+        axios.post(getUrl,orderData).then(res => {
             if (res.data) {
                 placeOrderData = res.data;
-               console.log('placeOrderData',placeOrderData)
             dispatch({
                     type: "PLACE_ORDERS",
                     payload: placeOrderData

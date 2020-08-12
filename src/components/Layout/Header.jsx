@@ -5,11 +5,10 @@ import { connect } from 'react-redux';
 class Header extends React.Component{
     constructor(props){
         super(props);
-        console.log(this.props)
     }
 
 
-    render(){console.log(this.props)
+    render(){
     return(
         <div className="fixed-header">
                 <div className="container">
@@ -21,7 +20,7 @@ class Header extends React.Component{
     }
 }
 
-const mapStateToProps = state => {console.log('redOrderSta',state)
+const mapStateToProps = state => {
   return {
       OrderData: state.foodItem.placeOrderData,
       loginData: state.login.LoginData
